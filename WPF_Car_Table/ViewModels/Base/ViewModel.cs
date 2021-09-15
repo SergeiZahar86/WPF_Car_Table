@@ -39,7 +39,8 @@ namespace WPF_Car_Table.ViewModels.Base
         /// <param name="propertyName">имя изменяемого свойства</param>
         /// <returns>false - если значение поля и свойства совпадают, 
         /// в противном случае - true и вызов метода <see cref="OnPropertyChanged"/></returns>
-        protected virtual bool Set<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        protected virtual bool Set<T>(ref T field, T value,
+            [CallerMemberName] string propertyName = null)
         {
             if (Equals(field, value)) return false;
             field = value;
@@ -49,6 +50,9 @@ namespace WPF_Car_Table.ViewModels.Base
 
         private System.Collections.IEnumerable testDataPoints;
 
-        public System.Collections.IEnumerable TestDataPoints { get => testDataPoints; set => Set(ref testDataPoints, value); }
+        public System.Collections.IEnumerable TestDataPoints 
+        {
+            get => testDataPoints; set => Set(ref testDataPoints, value); 
+        }
     }
 }
